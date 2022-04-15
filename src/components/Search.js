@@ -4,6 +4,7 @@ import Form from './Form';
 
 const Search = () => {
   const searchMovie = useSelector((state) => state.movie.searchMovie);
+  console.log(searchMovie);
   const movieId=useSelector(state=>state.movie.movieId);
   return (
     <>

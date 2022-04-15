@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteDirector } from "../apiCalls";
 import { directorAction } from "../store/director";
+import moment from "moment";
 
 const Directorcard = ({ director }) => {
   const dispatch=useDispatch();
@@ -43,6 +44,7 @@ const Directorcard = ({ director }) => {
         <p style={{ fontSize: "12px", marginBottom: "5px" }}>
           {director.description}
         </p>
+        <small>{moment(director.createdat).fromNow()}</small>
       </div>
       <div
         style={{

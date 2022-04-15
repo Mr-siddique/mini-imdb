@@ -5,6 +5,7 @@ import Movies from "./components/Movies";
 import Directors from "./components/Directors";
 import DirectorsMovies from "./components/DirectorsMovies";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           />
         </Routes>
       </main>
+      <Footer/>
     </BrowserRouter>
   );
 };

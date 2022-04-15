@@ -4,11 +4,13 @@ import { fetchMovies } from "../apiCalls";
 import { movieAction } from "../store/movie";
 import MovieCard from "./MovieCard";
 import Form from "./Form";
+import moment from "moment";
 
 const Movies = () => {
   const dispatch = useDispatch();
   const movieId = useSelector((state) => state.movie.movieId);
-  const movies = useSelector((state) => state.movie.movies);
+  let movies = useSelector((state) => state.movie.movies);
+
   const getMovies = async () => {
     try {
       const { data } = await fetchMovies();
@@ -27,10 +29,21 @@ const Movies = () => {
       return acc;
     }, []);
   };
-
+  const addCeleb=()=>{
+    return movies?.reduce((acc,curr)=>{
+      const celeb=curr.leadroles;
+      for(let i=0;i<celeb.length;i++){
+        if (acc.find((Cel) => celeb[i] === Cel || celeb[i].length<3)) continue;
+        acc.push(celeb[i]);
+      }
+      return acc;
+    },[]);
+  }
   dispatch(movieAction.addCatogery(addCatogery()));
+  dispatch(movieAction.addCelebrity(addCeleb()));
   useEffect(() => {
     getMovies();
+   movies=movies.slice().sort((first,second)=>moment(first.id).valueOf()-moment(second.id).valueOf());
   }, [movieId]);
   return (
     <>

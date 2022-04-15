@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllMoviesOfADirector } from "../apiCalls";
 import { directorsMoviesAction } from "../store/directorsMovies";
 import MovieCard from "./MovieCard";
+import moment from "moment";
 
 const DirectorCard = ({ director }) => {
   const dispatch = useDispatch();
@@ -49,7 +50,9 @@ const DirectorCard = ({ director }) => {
           <button
             class="addMovie"
             style={btnStyle}
-            onClick={() => dispatch(directorsMoviesAction.addMovie(director.id))}
+            onClick={() =>
+              dispatch(directorsMoviesAction.addMovie(director.id))
+            }
           >
             + Add Movie
           </button>

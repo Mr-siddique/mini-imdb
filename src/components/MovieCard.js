@@ -2,11 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteAMovie } from "../apiCalls";
 import { directorsMoviesAction } from "../store/directorsMovies";
 import { movieAction } from "../store/movie";
+import moment from "moment";
+
 
 const MovieCard = ({ movie }) => {
   const dispatch = useDispatch();
   const categories = movie.categories.join(",");
   const leadroles = movie.leadroles.join(",");
+
   const editMovie = (e) => {
     e.preventDefault();
     window.scrollTo(0,0);
@@ -46,6 +49,7 @@ const MovieCard = ({ movie }) => {
 
       <p>catogery: {categories}</p>
       <p>Leadroles: {leadroles}</p>
+      <small>{moment(movie.createdat).fromNow()}</small>
       <div
         style={{
           display: "flex",
