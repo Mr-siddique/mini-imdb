@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/mini-imdb/static/js/main.33bd285c.js",
+    "main.js": "/mini-imdb/static/js/main.e4e9443b.js",
     "index.html": "/mini-imdb/index.html",
-    "main.33bd285c.js.map": "/mini-imdb/static/js/main.33bd285c.js.map"
+    "main.e4e9443b.js.map": "/mini-imdb/static/js/main.e4e9443b.js.map"
   },
   "entrypoints": [
-    "static/js/main.33bd285c.js"
+    "static/js/main.e4e9443b.js"
   ]
 }
